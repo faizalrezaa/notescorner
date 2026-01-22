@@ -21,7 +21,7 @@ Develop a website application platform using Framework  **NextJs with Typescript
 ### 2. Networking Data
 * **API Integration**: Perform RESTFull API clas using method such as `CREATE`, `GET`, `UPDATE`, `DELETE`.
 * **Error Handling**: Implement complexity logic to manage excaptions, such timeouts, API errors, and empty states
-* **Data Source**: Feel free for u to using [public API](https://github.com/public-apis/public-apis) available online. or your own API (using any tools like Express.js, Golang, Java, etc) it doesn't affect our scoring. The key factor in evaluation is how you handle the given data, so keep that in mind while working
+* **Data Source**: Feel free for u to using [public API](https://github.com/public-apis/public-apis) available online. or your own API (using any tools like Express.js, Golang, Java, etc) it doesn't affect our scoring.
   > **Note:** Evaluation focuses on your data handling logic and architecture rather than the API source itself.
 
 ### 3. User Interface
