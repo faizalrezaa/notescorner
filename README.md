@@ -10,7 +10,7 @@ To pass this selection, you must complete this challenge according to the criter
 # 🌐🖥️ Web Challenge 
 
 ## 🎯 Objective
-Develop a website application platform using any library are available in the world, preferably **React Typescript** 
+Develop a website application platform using any Framework are available in the world, preferably **NextJs with Typescript** 
 
 ## 🚀 Technical Requirements
 
@@ -42,7 +42,6 @@ Use a free hosting service, so you don't need to spend any money for this challe
   - [Netlify](https://docs.netlify.com/get-started/)
     
 #### 💫 Bonus Point
-* Use Next js as a Framework or library for building the web 
 * Implement complex animation
 * Using semantic HTML
 * Implement Modern State Management (Zustand)
