@@ -98,7 +98,7 @@ While original UI design is not mandatory, the app should be polished and intuit
 ## 🚨🚨 Important Notes
 - Challenges submitted must be your own work. Code obtained from other sources (websites, books, forums, GitHub, etc.) should only be used for reference.
 - The deadline was expected **before 23:59 on February 4, 2026**. There is an interview after you did a pull request. Please, prepare your self for interview, our team will contact you immediately. During this time, it may change. Consider following our social media on [Instagram](https://www.instagram.com/bccfilkom/) or LINE Official Account (@zaidrobbani) for further information.
-- you have any questions related to this challenge?? Feel free to contact us via [WhatsApp](https://wa.me/+6282131907973)
+- you have any questions related to this challenge?? Feel free to contact us via [WhatsApp](https://wa.me/+6282241982353)
 <br/>
 <br/>
 It’s all up to you now! If you have any questions, feel free to reach out using the contact details above. And remember, this isn’t the only way to join us—good luck, give it your best shot!
