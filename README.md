@@ -31,15 +31,15 @@ Develop a website application platform using any library are available in the wo
   - [Mobbin](https://mobbin.com/browse/ios/apps)
   - [Screenlane](https://screenlane.com/) <br>
     and your application not need to use your own design
+    
 ### 4. Deploy your best project
 Deploy your website so that it can be accessed by the public.<br>
 Use a free hosting service, so you don't need to spend any money for this challenge. You can use platforms like:
-- [Github](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages) 
-- [Vercel](https://vercel.com/docs/getting-started-with-vercel) 
-- [Netlify](https://docs.netlify.com/get-started/)
-
-
-#### Bonus Point
+  - [Github](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages) 
+  - [Vercel](https://vercel.com/docs/getting-started-with-vercel) 
+  - [Netlify](https://docs.netlify.com/get-started/)
+    
+#### 💫 Bonus Point
 * Use Next js as a Framework or library for building the web 
 * Implement complex animation
 * Using semantic HTML
