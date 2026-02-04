@@ -11,13 +11,14 @@ import { useEffect } from "react";
 
 export default function Create() {
   const colorAvailible = ["bg-pink", "bg-green-light", "bg-yellow", "bg-cyan"];
+  const { updateMutation, deleteMutation } = useUsers();
   const { id, name, text, color, setName, setText, setColor, setDate } =
     useUserStore();
   const date = new Date().toLocaleDateString("en-GB");
   const router = useRouter();
   const params = useParams();
   const paramsId = params.id as string;
-  const { updateMutation, deleteMutation } = useUsers();
+
   const { data } = useNoteDetails(paramsId);
 
   useEffect(() => {
@@ -25,7 +26,7 @@ export default function Create() {
     setText(data?.text as string);
     setColor(data?.color as string);
     setDate(data?.date as string);
-  }, [data, setName, setText, setColor]);
+  }, [data, setName, setText, setColor, setDate]);
 
   const handleDelete = () => {
     deleteMutation.mutate({ id: paramsId } as User, {

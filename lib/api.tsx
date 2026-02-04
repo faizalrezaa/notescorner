@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { User } from "@/types/user";
 
-const API_URL = "https://6982ff5f9c3efeb892a4066c.mockapi.io/notes";
+const API_URL = `${process.env.MOCK_API_URL}`;
 
 export const api = {
   getAll: async () => {
