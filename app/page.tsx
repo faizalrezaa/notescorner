@@ -62,6 +62,7 @@ export default function Home() {
               name={data.name}
               text={data.text}
               color={data.color}
+              date={data.date}
               className="shadow-lg cursor-pointer"
             ></Note>
           ))}

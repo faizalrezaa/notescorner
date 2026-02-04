@@ -7,10 +7,9 @@ export default function Note({
   text,
   color,
   className,
+  date,
   onClick,
 }: NoteProps) {
-  const date = new Date();
-  const stringDate = date.toLocaleDateString("en-GB");
   return (
     <div
       onClick={onClick}
@@ -20,7 +19,7 @@ export default function Note({
       <div>{text}</div>
       <div className=" pt-7">
         <div>{name}</div>
-        <div>{stringDate}</div>
+        <div>{date}</div>
       </div>
     </div>
   );
