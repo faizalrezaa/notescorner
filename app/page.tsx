@@ -55,7 +55,7 @@ export default function Home() {
         </button>
 
         <div className="px-1 md:px-3 lg:px-4 columns-2 md:columns-4 xl:columns-6 gap-3">
-          {usersQuery.data?.map((data) => (
+          {usersQuery.data?.toReversed().map((data) => (
             <Note
               onClick={() => handleEdit(data.id)}
               key={data.id}
