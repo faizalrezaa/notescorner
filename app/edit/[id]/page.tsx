@@ -7,13 +7,15 @@ import { useUserStore } from "@/store/useUser";
 import { User } from "@/types/user";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { colorAvailible } from "@/public/colorAvailible";
+import { UpdateUserSchema } from "@/schemas/UserSchema";
 
 export default function Create() {
-  const colorAvailible = ["bg-pink", "bg-green-light", "bg-yellow", "bg-cyan"];
   const { updateMutation, deleteMutation } = useUsers();
   const { id, name, text, color, setName, setText, setColor, setDate } =
     useUserStore();
+  const [errors, setErrors] = useState<{ [key: string]: string[] }>({});
   const date = new Date().toLocaleDateString("en-GB");
   const router = useRouter();
   const params = useParams();
@@ -47,11 +49,20 @@ export default function Create() {
   };
 
   const handleUpdate = () => {
-    if (!name || !text) {
-      alert("Please fill your name and message.");
+    const input = {
+      id: paramsId,
+      name: name,
+      text: text,
+      color: color,
+      date: date,
+    };
+    const result = UpdateUserSchema.safeParse(input);
+    if (!result.success) {
+      setErrors(result.error.flatten().fieldErrors);
       return;
     }
-    updateMutation.mutate({ id: paramsId, name, text, color, date } as User, {
+    setErrors({});
+    updateMutation.mutate({ ...result.data } as User, {
       onSuccess: () => {
         router.push("/");
         alert("Note successfully updated!");
@@ -92,8 +103,15 @@ export default function Create() {
               id="text"
               value={text || ""}
               onChange={(e) => setText(e.target.value)}
-              className="w-full border-2 border-gray-300 h-20 mt-2.5 rounded p-2.5"
+              className="w-full border-2 border-gray-300 h-20 mt-2.5 rounded p-2.5 "
             ></textarea>
+            <div className="min-h-7">
+              {errors.text && (
+                <div className="font-poppins-l text-sm text-red-500">
+                  {errors.text[0]}
+                </div>
+              )}
+            </div>
           </div>
           <div className="pb-3.5">
             <label htmlFor="name" className="font-poppins-rg cursor-pointer">
@@ -104,8 +122,15 @@ export default function Create() {
               value={name || ""}
               onChange={(e) => setName(e.target.value)}
               type="text"
-              className="w-full border-2 border-gray-300 px-3.5 py-2.5 mt-2.5 rounded"
+              className="w-full border-2 border-gray-300 px-3.5 py-2.5 mt-2.5 rounded mb-1.5"
             />
+            <div className="min-h-7">
+              {errors.name && (
+                <div className="font-poppins-l text-sm text-red-500">
+                  {errors.name[0]}
+                </div>
+              )}
+            </div>
           </div>
           <div className="font-poppins-rg">Color</div>
           <div className="flex gap-3.5 pt-2">

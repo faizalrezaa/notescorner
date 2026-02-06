@@ -6,11 +6,13 @@ import { useUserStore } from "@/store/useUser";
 import { useUsers } from "../../hooks/useUsers";
 import { User } from "@/types/user";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { CreateUserSchema } from "@/schemas/UserSchema";
+import { colorAvailible } from "@/public/colorAvailible";
 
 export default function Create() {
-  const colorAvailible = ["bg-pink", "bg-green-light", "bg-yellow", "bg-cyan"];
   const { name, text, color, setName, setText, setColor } = useUserStore();
+  const [errors, setErrors] = useState<{ [key: string]: string[] }>({});
   const { createMutation } = useUsers();
   const date = new Date().toLocaleDateString("en-GB");
   const router = useRouter();
@@ -22,11 +24,14 @@ export default function Create() {
   }, [setName, setText, setColor]);
 
   const handleSubmit = () => {
-    if (!name || !text) {
-      alert("Please fill your name and message.");
+    const input = { name: name, text: text, color: color, date: date };
+    const result = CreateUserSchema.safeParse(input);
+    if (!result.success) {
+      setErrors(result.error.flatten().fieldErrors);
       return;
     }
-    createMutation.mutate({ name, text, color, date } as User, {
+    setErrors({});
+    createMutation.mutate({ ...result.data } as User, {
       onSuccess: () => {
         alert("Note succesfully added!");
         (setName(""), setText(""), setColor("bg-pink"), router.push("/"));
@@ -65,14 +70,29 @@ export default function Create() {
               onChange={(e) => setText(e.target.value)}
               className="w-full border-2 border-gray-300 h-20 mt-2.5 rounded p-2.5"
             ></textarea>
+            <div className="min-h-7">
+              {errors.text && (
+                <div className="text-red-500 pb-1.5 font-poppins-rg text-sm">
+                  {errors.text[0]}
+                </div>
+              )}
+            </div>
           </div>
+
           <div className="pb-3.5">
             <label className="font-poppins-rg ">Your Name</label>
             <input
               onChange={(e) => setName(e.target.value)}
               type="text"
-              className="w-full border-2 border-gray-300 px-3.5 py-2.5 mt-2.5 rounded"
+              className="w-full border-2 border-gray-300 px-3.5 py-2.5 mt-2.5 mb-1.5 rounded"
             />
+            <div className="min-h-7">
+              {errors.name && (
+                <div className="text-red-500 pb-1.5 font-poppins-rg text-sm">
+                  {errors.name[0]}
+                </div>
+              )}
+            </div>
           </div>
           <div className="font-poppins-rg">Color</div>
           <div className="flex gap-3.5 pt-2">
