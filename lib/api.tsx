@@ -2,21 +2,24 @@ import axios from "axios";
 
 import { User } from "@/types/user";
 
-const API_URL = `${process.env.NEXT_PUBLIC_API_URL}`;
+const axiosInstance = axios.create({
+  baseURL: `${process.env.NEXT_PUBLIC_API_URL}`,
+  timeout: 8000,
+});
 
 export const api = {
   getAll: async () => {
-    const res = await axios.get<User[]>(API_URL);
+    const res = await axiosInstance.get<User[]>("");
     return res.data;
   },
 
   getOne: async (id: string) => {
-    const res = await axios.get<User>(`${API_URL}/${id}`);
+    const res = await axiosInstance.get<User>(`/${id}`);
     return res.data;
   },
 
   create: async ({ name, text, color, date }: User) => {
-    const res = await axios.post<User>(API_URL, {
+    const res = await axiosInstance.post<User>("", {
       name,
       color,
       text,
@@ -26,7 +29,7 @@ export const api = {
   },
 
   update: async ({ id, name, text, color, date }: User) => {
-    const res = await axios.put<User>(`${API_URL}/${id}`, {
+    const res = await axiosInstance.put<User>(`/${id}`, {
       name,
       text,
       color,
@@ -36,7 +39,7 @@ export const api = {
   },
 
   delete: async ({ id }: User) => {
-    const res = await axios.delete(`${API_URL}/${id}`);
+    const res = await axiosInstance.delete(`/${id}`);
     return res.data;
   },
 };

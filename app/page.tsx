@@ -17,11 +17,11 @@ export default function Home() {
 
   if (usersQuery.isLoading) {
     return (
-      <div className="w-full min-h-screen flex flex-col justify-center items-center">
-        <h1 className="font-kalam-rg text-4xl md:text-4xl xl:text-5xl text-center">
+      <div className="flex min-h-screen w-full flex-col items-center justify-center">
+        <h1 className="font-kalam-rg text-center text-4xl md:text-4xl xl:text-5xl">
           Notes Corner
         </h1>
-        <h3 className="font-kalam-rg text-xl md:text-xl xl:text-2xl text-center">
+        <h3 className="font-kalam-rg text-center text-xl md:text-xl xl:text-2xl">
           Write Anything
         </h3>
       </div>
@@ -29,38 +29,77 @@ export default function Home() {
   }
   if (usersQuery.isError) {
     return (
-      <div className="w-full min-h-screen flex justify-center items-center">
-        <h3 className="text-red-500 font-kalam-rg text-xl">
-          Yah, gagal ambil data!
+      <div className="flex min-h-screen w-full flex-col items-center justify-center">
+        <h3 className="font-poppins-rg text-xl text-red-500">
+          Failed to pull the data.
         </h3>
+        <button
+          onClick={() => window.location.reload()}
+          className="font-poppins-l mt-4 w-30 cursor-pointer rounded-xl bg-red-500 py-3.5 text-center text-sm font-semibold text-white hover:bg-red-400"
+        >
+          Reload
+        </button>
       </div>
     );
   }
+
+  if (usersQuery.data?.length === 0) {
+    return (
+      <main className="flex min-h-screen w-full flex-col items-center">
+        <div className="flex w-full flex-col items-center justify-center gap-3.5 py-20">
+          <div className="flex flex-col items-center justify-center">
+            <h1 className="font-kalam-rg text-center text-3xl md:text-4xl xl:text-5xl">
+              Notes Corner
+            </h1>
+            <h3 className="font-kalam-rg text-center text-lg md:text-xl xl:text-2xl">
+              Write Anything
+            </h3>
+          </div>
+          <button
+            onClick={handleAdd}
+            className="font-poppins-l mt-9 w-64 cursor-pointer rounded-xl bg-[#2563EB] py-3.5 text-center text-sm font-semibold text-white hover:bg-[#4e82f2]"
+          >
+            + Add Note
+          </button>
+          <button
+            onClick={handleAdd}
+            className="font-poppins-l mb-3.5 w-64 cursor-pointer rounded-xl border-2 border-gray-400 py-3.5 text-center text-sm font-semibold text-gray-400"
+          >
+            Click the note for edit mode
+          </button>
+
+          <div className="font-kalam-rg text-xl">
+            <div>The board still empty!</div>
+          </div>
+        </div>
+      </main>
+    );
+  }
   return (
-    <main className="w-full min-h-screen flex flex-col items-center">
-      <div className="w-full flex flex-col justify-center items-center gap-3.5 py-20">
-        <div className="flex flex-col justify-center items-center">
-          <h1 className="font-kalam-rg text-3xl md:text-4xl xl:text-5xl text-center">
+    <main className="flex min-h-screen w-full flex-col items-center">
+      <div className="flex w-full flex-col items-center justify-center gap-3.5 py-20">
+        <div className="flex flex-col items-center justify-center">
+          <h1 className="font-kalam-rg text-center text-3xl md:text-4xl xl:text-5xl">
             Notes Corner
           </h1>
-          <h3 className="font-kalam-rg text-lg md:text-xl xl:text-2xl text-center">
+          <h3 className="font-kalam-rg text-center text-lg md:text-xl xl:text-2xl">
             Write Anything
           </h3>
         </div>
         <button
           onClick={handleAdd}
-          className="w-64 text-center text-white font-semibold bg-[#2563EB] hover:bg-[#4e82f2] py-3.5  mt-9 rounded-xl cursor-pointer font-poppins-l text-sm"
+          className="font-poppins-l mt-9 w-64 cursor-pointer rounded-xl bg-[#2563EB] py-3.5 text-center text-sm font-semibold text-white hover:bg-[#4e82f2]"
         >
           + Add Note
         </button>
         <button
           onClick={handleAdd}
-          className="w-64 text-center text-gray-400 font-semibold border-gray-400 border-2 py-3.5  mb-3.5 rounded-xl cursor-pointer font-poppins-l text-sm"
+          className="font-poppins-l mb-3.5 w-64 cursor-pointer rounded-xl border-2 border-gray-400 py-3.5 text-center text-sm font-semibold text-gray-400"
         >
           Click the note for edit mode
         </button>
 
-        <div className="px-1 md:px-3 lg:px-4 columns-2 md:columns-4 xl:columns-6 gap-3">
+        <div className="columns-2 gap-3 px-1 md:columns-4 md:px-3 lg:px-4 xl:columns-6">
           {usersQuery.data?.toReversed().map((data) => (
             <Note
               onClick={() => handleEdit(data.id)}
@@ -69,7 +108,7 @@ export default function Home() {
               text={data.text}
               color={data.color}
               date={data.date!}
-              className="shadow-lg cursor-pointer"
+              className="cursor-pointer shadow-lg"
             ></Note>
           ))}
         </div>
