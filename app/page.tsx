@@ -94,7 +94,7 @@ export default function Home() {
           Click the note for edit mode
         </button>
 
-        <div className="columns-2 gap-3 px-1 md:columns-4 md:px-3 lg:px-4 xl:columns-6">
+        <div className="w-full columns-2 gap-3 px-1 md:columns-4 md:px-3 lg:px-4 xl:columns-6">
           {usersQuery.data?.toReversed().map((data) => (
             <Note
               onClick={() => handleEdit(data.id)}

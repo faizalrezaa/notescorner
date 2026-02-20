@@ -82,13 +82,13 @@ export default function Create() {
   return (
     <section className="flex min-h-screen w-full items-center justify-center">
       <div className="flex w-full flex-col items-center justify-center md:max-w-2xl lg:max-w-3xl lg:flex-row xl:max-w-4xl">
-        <div className="bg-grey-bg flex h-90 w-full items-center justify-center lg:h-140">
+        <div className="bg-grey-bg flex h-90 w-full items-center justify-center overflow-y-scroll lg:h-140">
           <Note
             name={name}
             text={text}
             color={color}
             date={date}
-            className="shadow-lg"
+            className="max-w-60 shadow-lg"
           ></Note>
         </div>
         <div className="flex w-full flex-col p-8">
