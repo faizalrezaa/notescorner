@@ -61,18 +61,16 @@ export default function Create() {
           ></Note>
         </div>
         <div className="flex w-full flex-col p-8">
-          <div className="font-poppins pt-10 pb-6 text-center text-3xl">
-            Create Note
-          </div>
+          <div className="pt-10 pb-6 text-center text-3xl">Create Note</div>
           <div className="pb-3.5">
-            <label className="font-poppins-rg">Your Message</label>
+            <label>Your Message</label>
             <textarea
               onChange={(e) => setText(e.target.value)}
               className="mt-2.5 h-20 w-full rounded border-2 border-gray-300 p-2.5"
             ></textarea>
             <div className="min-h-7">
               {errors.text && (
-                <div className="font-poppins-rg pb-1.5 text-sm text-red-500">
+                <div className="pb-1.5 text-sm text-red-500">
                   {errors.text[0]}
                 </div>
               )}
@@ -80,7 +78,7 @@ export default function Create() {
           </div>
 
           <div className="pb-3.5">
-            <label className="font-poppins-rg">Your Name</label>
+            <label>Your Name</label>
             <input
               onChange={(e) => setName(e.target.value)}
               type="text"
@@ -88,13 +86,13 @@ export default function Create() {
             />
             <div className="min-h-7">
               {errors.name && (
-                <div className="font-poppins-rg pb-1.5 text-sm text-red-500">
+                <div className="pb-1.5 text-sm text-red-500">
                   {errors.name[0]}
                 </div>
               )}
             </div>
           </div>
-          <div className="font-poppins-rg">Color</div>
+          <div>Color</div>
           <div className="flex gap-3.5 pt-2">
             {colorAvailible.map((c, index) => (
               <div

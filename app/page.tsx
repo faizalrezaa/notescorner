@@ -30,12 +30,10 @@ export default function Home() {
   if (usersQuery.isError) {
     return (
       <div className="flex min-h-screen w-full flex-col items-center justify-center">
-        <h3 className="font-poppins-rg text-xl text-red-500">
-          Failed to pull the data.
-        </h3>
+        <h3 className="text-xl text-red-500">Failed to pull the data.</h3>
         <button
           onClick={() => window.location.reload()}
-          className="font-poppins-l mt-4 w-30 cursor-pointer rounded-xl bg-red-500 py-3.5 text-center text-sm font-semibold text-white hover:bg-red-400"
+          className="mt-4 w-30 cursor-pointer rounded-xl bg-red-500 py-3.5 text-center text-sm font-semibold text-white hover:bg-red-400"
         >
           Reload
         </button>
@@ -57,13 +55,13 @@ export default function Home() {
           </div>
           <button
             onClick={handleAdd}
-            className="font-poppins-l mt-9 w-64 cursor-pointer rounded-xl bg-[#2563EB] py-3.5 text-center text-sm font-semibold text-white hover:bg-[#4e82f2]"
+            className="mt-9 w-64 cursor-pointer rounded-xl bg-[#2563EB] py-3.5 text-center text-sm font-semibold text-white hover:bg-[#4e82f2]"
           >
             + Add Note
           </button>
           <button
             onClick={handleAdd}
-            className="font-poppins-l mb-3.5 w-64 cursor-pointer rounded-xl border-2 border-gray-400 py-3.5 text-center text-sm font-semibold text-gray-400"
+            className="mb-3.5 w-64 cursor-pointer rounded-xl border-2 border-gray-400 py-3.5 text-center text-sm font-semibold text-gray-400"
           >
             Click the note for edit mode
           </button>
@@ -88,13 +86,13 @@ export default function Home() {
         </div>
         <button
           onClick={handleAdd}
-          className="font-poppins-l mt-9 w-64 cursor-pointer rounded-xl bg-[#2563EB] py-3.5 text-center text-sm font-semibold text-white hover:bg-[#4e82f2]"
+          className="mt-9 w-64 cursor-pointer rounded-xl bg-[#2563EB] py-3.5 text-center text-sm font-semibold text-white hover:bg-[#4e82f2]"
         >
           + Add Note
         </button>
         <button
           onClick={handleAdd}
-          className="font-poppins-l mb-3.5 w-64 cursor-pointer rounded-xl border-2 border-gray-400 py-3.5 text-center text-sm font-semibold text-gray-400"
+          className="mb-3.5 w-64 cursor-pointer rounded-xl border-2 border-gray-400 py-3.5 text-center text-sm font-semibold text-gray-400"
         >
           Click the note for edit mode
         </button>

@@ -92,11 +92,11 @@ export default function Create() {
           ></Note>
         </div>
         <div className="flex w-full flex-col p-8">
-          <h2 className="font-poppins-md pt-10 pb-6 text-center text-3xl">
+          <h2 className="pt-10 pb-6 text-center text-3xl">
             Update/Delete Note
           </h2>
           <div className="pb-3.5">
-            <label htmlFor="text" className="font-poppins-rg cursor-pointer">
+            <label htmlFor="text" className="cursor-pointer">
               Your Message
             </label>
             <textarea
@@ -107,14 +107,12 @@ export default function Create() {
             ></textarea>
             <div className="min-h-7">
               {errors.text && (
-                <div className="font-poppins-l text-sm text-red-500">
-                  {errors.text[0]}
-                </div>
+                <div className="text-sm text-red-500">{errors.text[0]}</div>
               )}
             </div>
           </div>
           <div className="pb-3.5">
-            <label htmlFor="name" className="font-poppins-rg cursor-pointer">
+            <label htmlFor="name" className="cursor-pointer">
               Your Name
             </label>
             <input
@@ -126,13 +124,11 @@ export default function Create() {
             />
             <div className="min-h-7">
               {errors.name && (
-                <div className="font-poppins-l text-sm text-red-500">
-                  {errors.name[0]}
-                </div>
+                <div className="text-sm text-red-500">{errors.name[0]}</div>
               )}
             </div>
           </div>
-          <div className="font-poppins-rg">Color</div>
+          <div className="">Color</div>
           <div className="flex gap-3.5 pt-2">
             {colorAvailible.map((c, index) => (
               <div
@@ -145,13 +141,13 @@ export default function Create() {
           <div className="flex flex-col items-center justify-center">
             <button
               onClick={() => handleUpdate()}
-              className="font-poppins-md mt-6 w-full cursor-pointer rounded bg-[#2563EB] py-3.5 text-center text-white hover:bg-[#4e82f2]"
+              className="mt-6 w-full cursor-pointer rounded bg-[#2563EB] py-3.5 text-center text-white hover:bg-[#4e82f2]"
             >
               Update
             </button>
             <button
               onClick={() => handleDelete()}
-              className="font-poppins-md mt-3 w-full cursor-pointer rounded bg-[#e74141] py-3.5 text-center text-white hover:bg-[#dc7a7a]"
+              className="mt-3 w-full cursor-pointer rounded bg-[#e74141] py-3.5 text-center text-white hover:bg-[#dc7a7a]"
             >
               Delete
             </button>
