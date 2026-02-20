@@ -90,10 +90,7 @@ export default function Home() {
         >
           + Add Note
         </button>
-        <button
-          onClick={handleAdd}
-          className="mb-3.5 w-64 cursor-pointer rounded-xl border-2 border-gray-400 py-3.5 text-center text-sm font-semibold text-gray-400"
-        >
+        <button className="mb-3.5 w-64 cursor-pointer rounded-xl border-2 border-gray-400 py-3.5 text-center text-sm font-semibold text-gray-400">
           Click the note for edit mode
         </button>
 
