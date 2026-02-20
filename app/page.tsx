@@ -18,10 +18,10 @@ export default function Home() {
   if (usersQuery.isLoading) {
     return (
       <div className="flex min-h-screen w-full flex-col items-center justify-center">
-        <h1 className="font-kalam-rg text-center text-4xl md:text-4xl xl:text-5xl">
+        <h1 className="text-center text-4xl md:text-4xl xl:text-5xl">
           Notes Corner
         </h1>
-        <h3 className="font-kalam-rg text-center text-xl md:text-xl xl:text-2xl">
+        <h3 className="text-center text-xl md:text-xl xl:text-2xl">
           Write Anything
         </h3>
       </div>
@@ -48,10 +48,10 @@ export default function Home() {
       <main className="flex min-h-screen w-full flex-col items-center">
         <div className="flex w-full flex-col items-center justify-center gap-3.5 py-20">
           <div className="flex flex-col items-center justify-center">
-            <h1 className="font-kalam-rg text-center text-3xl md:text-4xl xl:text-5xl">
+            <h1 className="text-center text-3xl md:text-4xl xl:text-5xl">
               Notes Corner
             </h1>
-            <h3 className="font-kalam-rg text-center text-lg md:text-xl xl:text-2xl">
+            <h3 className="text-center text-lg md:text-xl xl:text-2xl">
               Write Anything
             </h3>
           </div>
@@ -68,7 +68,7 @@ export default function Home() {
             Click the note for edit mode
           </button>
 
-          <div className="font-kalam-rg text-xl">
+          <div className="text-xl">
             <div>The board still empty!</div>
           </div>
         </div>
@@ -79,10 +79,10 @@ export default function Home() {
     <main className="flex min-h-screen w-full flex-col items-center">
       <div className="flex w-full flex-col items-center justify-center gap-3.5 py-20">
         <div className="flex flex-col items-center justify-center">
-          <h1 className="font-kalam-rg text-center text-3xl md:text-4xl xl:text-5xl">
+          <h1 className="text-center text-3xl md:text-4xl xl:text-5xl">
             Notes Corner
           </h1>
-          <h3 className="font-kalam-rg text-center text-lg md:text-xl xl:text-2xl">
+          <h3 className="text-center text-lg md:text-xl xl:text-2xl">
             Write Anything
           </h3>
         </div>

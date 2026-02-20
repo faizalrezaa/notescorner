@@ -3,7 +3,7 @@
 import { useNoteDetails, useUsers } from "@/hooks/useUsers";
 import Note from "@/components/Note";
 
-import { useUserStore } from "@/store/useUser";
+import { useUserStore } from "@/store/useUserStore";
 import { User } from "@/types/user";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
@@ -80,9 +80,9 @@ export default function Create() {
   };
 
   return (
-    <section className="w-full min-h-screen flex justify-center items-center ">
-      <div className="w-full md:max-w-2xl lg:max-w-3xl xl:max-w-4xl flex flex-col lg:flex-row justify-center items-center">
-        <div className="w-full flex justify-center items-center h-90 lg:h-140 bg-grey-bg">
+    <section className="flex min-h-screen w-full items-center justify-center">
+      <div className="flex w-full flex-col items-center justify-center md:max-w-2xl lg:max-w-3xl lg:flex-row xl:max-w-4xl">
+        <div className="bg-grey-bg flex h-90 w-full items-center justify-center lg:h-140">
           <Note
             name={name}
             text={text}
@@ -91,8 +91,8 @@ export default function Create() {
             className="shadow-lg"
           ></Note>
         </div>
-        <div className="w-full flex  flex-col p-8 ">
-          <h2 className="font-poppins-md text-3xl pt-10 pb-6 text-center">
+        <div className="flex w-full flex-col p-8">
+          <h2 className="font-poppins-md pt-10 pb-6 text-center text-3xl">
             Update/Delete Note
           </h2>
           <div className="pb-3.5">
@@ -103,7 +103,7 @@ export default function Create() {
               id="text"
               value={text || ""}
               onChange={(e) => setText(e.target.value)}
-              className="w-full border-2 border-gray-300 h-20 mt-2.5 rounded p-2.5 "
+              className="mt-2.5 h-20 w-full rounded border-2 border-gray-300 p-2.5"
             ></textarea>
             <div className="min-h-7">
               {errors.text && (
@@ -122,7 +122,7 @@ export default function Create() {
               value={name || ""}
               onChange={(e) => setName(e.target.value)}
               type="text"
-              className="w-full border-2 border-gray-300 px-3.5 py-2.5 mt-2.5 rounded mb-1.5"
+              className="mt-2.5 mb-1.5 w-full rounded border-2 border-gray-300 px-3.5 py-2.5"
             />
             <div className="min-h-7">
               {errors.name && (
@@ -138,20 +138,20 @@ export default function Create() {
               <div
                 key={index}
                 onClick={() => setColor(c)}
-                className={`${c} w-10 h-10 rounded border-2  cursor-pointer ${c == color ? "border-gray-500" : "border-gray-300"}`}
+                className={`${c} h-10 w-10 cursor-pointer rounded border-2 ${c == color ? "border-gray-500" : "border-gray-300"}`}
               ></div>
             ))}
           </div>
-          <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col items-center justify-center">
             <button
               onClick={() => handleUpdate()}
-              className="w-full text-center font-poppins-md text-white bg-[#2563EB] hover:bg-[#4e82f2] py-3.5 mt-6 rounded cursor-pointer"
+              className="font-poppins-md mt-6 w-full cursor-pointer rounded bg-[#2563EB] py-3.5 text-center text-white hover:bg-[#4e82f2]"
             >
               Update
             </button>
             <button
               onClick={() => handleDelete()}
-              className="w-full text-center font-poppins-md text-white bg-[#e74141] hover:bg-[#dc7a7a] py-3.5 mt-3 rounded cursor-pointer"
+              className="font-poppins-md mt-3 w-full cursor-pointer rounded bg-[#e74141] py-3.5 text-center text-white hover:bg-[#dc7a7a]"
             >
               Delete
             </button>

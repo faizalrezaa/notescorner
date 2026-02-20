@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins, Kalam } from "next/font/google";
 import "./globals.css";
 
 import Provider from "./provider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const kalam = Kalam({
   subsets: ["latin"],
+  variable: "--font-kalam",
+  weight: ["300", "400", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const poppins = Poppins({
   subsets: ["latin"],
+  variable: "--font-poppins",
+  weight: ["100", "300", "500", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -29,9 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${poppins.variable} ${kalam.variable} antialiased`}>
         <Provider>{children}</Provider>
       </body>
     </html>
